@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For You ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -302,7 +302,7 @@
             align-items: center;
             padding: 60px 40px;
             text-align: center;
-            overflow: hidden;
+            overflow: auto;
             backface-visibility: hidden;
         }
 
@@ -440,6 +440,9 @@
             color: var(--text-color);
             font-weight: 300;
             max-width: 400px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .page-highlight {
@@ -537,23 +540,115 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
             .book-container {
                 width: 95vw;
-                height: 70vh;
+                height: 75vh;
+                max-height: none;
             }
 
             .page {
-                padding: 40px 25px;
+                padding: 30px 20px;
+                font-size: 0.9rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+            .page-title {
+                font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+                margin-bottom: 15px;
+                word-wrap: break-word;
+            }
+
+            .page-text {
+                font-size: clamp(0.85rem, 3vw, 1rem) !important;
+                line-height: 1.6;
+                max-width: 100%;
+            }
+
+            .page-emoji {
+                font-size: clamp(2.5rem, 10vw, 4rem) !important;
+                margin-bottom: 15px;
             }
 
             .nav-buttons {
                 bottom: -70px;
                 gap: 15px;
+                width: 90%;
             }
 
             .nav-btn {
                 padding: 10px 20px;
                 font-size: 0.9rem;
+            }
+
+            /* Photo pages mobile */
+            .photo-frame img,
+            .photo-placeholder {
+                height: 120px;
+            }
+
+            .photo-collage-four {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 15px;
+            }
+
+            .photo-collage-four .photo-frame {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+                transform: rotate(0deg) !important;
+            }
+
+            /* Valentine Question Mobile */
+            .question-emoji {
+                font-size: clamp(4rem, 12vw, 6rem) !important;
+            }
+
+            .question-text {
+                font-size: clamp(2rem, 7vw, 3.5rem) !important;
+                padding: 0 20px;
+            }
+
+            .question-buttons {
+                width: 90vw;
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+            }
+
+            .valentine-btn {
+                font-size: 1.2rem;
+                padding: 15px 40px;
+                width: 80%;
+            }
+
+            .music-control {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+
+            .attempts-text {
+                bottom: 80px;
+                font-size: 1rem;
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            /* Lightbox mobile */
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+
+            .lightbox-caption {
+                bottom: 20px;
+                font-size: 1.2rem;
             }
         }
 
